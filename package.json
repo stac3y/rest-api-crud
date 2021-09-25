@@ -8,9 +8,15 @@
     "run": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anastasia Starina",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "custom-env": "^2.0.1",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4"
+  },
+  "devDependencies": {
+    "sequelize": "^6.6.5"
   }
 }
