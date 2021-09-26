@@ -1,4 +1,4 @@
-const {body} = require('express-validator/check');
+const {body} = require('express-validator');
 
 const User = require('../models/user');
 
@@ -7,7 +7,7 @@ module.exports = [body('name')
     .withMessage('Please enter a name with only text and numbers.')
     .custom((value, {req}) => {
         return User
-            .findOne({name: value})
+            .findOne({where: {name: value}})
             .then(user => {
                 if (user) {
                     return  Promise.reject('Username exists already, please pick a different one!')
