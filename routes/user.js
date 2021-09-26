@@ -2,24 +2,35 @@ const express = require('express');
 const {body} = require('express-validator/check');
 
 const userController = require('../controllers/user');
+const User = require('../models/user');
 
 const router = express.Router();
+const validationHandler = [body('name')
+    .isAlphanumeric()
+    .withMessage('Please enter a name with only text and numbers.')
+    .custom((value, {req}) => {
+        return User
+            .findOne({name: value})
+            .then(user => {
+                if (user) {
+                    return  Promise.reject('Username exists already, please pick a different one!')
+                }
+            })
+    })
+    .trim(),
+    body('email')
+        .isEmail()
+        .withMessage('Please enter a valid e-mail!')
+        .normalizeEmail()
+        .trim(),
+    body('password', 'Please enter a password with only numbers and text and at least 6 characters.')
+        .isLength({min: 6})
+        .isAlphanumeric()
+        .trim()
+]
 
 //POST /user/create-user
-router.post('/create-user',
-    [body('name', 'Please enter a name with only text and numbers.')
-        .isAlphanumeric()
-        .trim(),
-        body('email')
-            .isEmail()
-            .withMessage('Please enter a valid e-mail!')
-            .normalizeEmail()
-            .trim(),
-        body('password', 'Please enter a password with only numbers and text and at least 6 characters.')
-            .isLength({min: 6})
-            .isAlphanumeric()
-            .trim()
-    ], userController.createUser);
+router.post('/create-user', validationHandler, userController.createUser);
 
 //GET /user/users
 router.get('/users', userController.getUsers);
@@ -31,20 +42,7 @@ router.get('/id/:userId', userController.getUserById);
 router.get('/name/:userName', userController.getUserByName);
 
 //PUT /user/update-user/:userId
-router.put('/update-user/:userId',
-    [body('name', 'Please enter a name with only text and numbers.')
-        .isAlphanumeric()
-        .trim(),
-        body('email')
-            .isEmail()
-            .withMessage('Please enter a valid e-mail!')
-            .normalizeEmail()
-            .trim(),
-        body('password', 'Please enter a password with only numbers and text and at least 6 characters.')
-            .isLength({min: 6})
-            .isAlphanumeric()
-            .trim()
-    ], userController.updateUser);
+router.put('/update-user/:userId', validationHandler, userController.updateUser);
 
 //DELETE /user/update-user/:userId
 router.delete('/delete-user/:userId', userController.deleteUser);
