@@ -1,3 +1,5 @@
+const { validationResult } = require('express-validator/check');
+
 const User = require('../models/user');
 
 //create a new user
@@ -5,6 +7,14 @@ exports.createUser = (req, res, next) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        console.log(errors.array());
+        const error = new Error(errors.array()[0].msg);
+        error.statusCode = 422;
+        throw error;
+    }
 
     User.create({
         name: name,
@@ -102,6 +112,14 @@ exports.updateUser = (req, res, next) => {
     const updatedName = req.body.name;
     const updatedEmail = req.body.email;
     const updatedPassword = req.body.password;
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        console.log(errors.array());
+        const error = new Error(errors.array()[0].msg);
+        error.statusCode = 422;
+        throw error;
+    }
 
     User.findByPk(userId)
         .then(user => {
