@@ -6,21 +6,21 @@ const validationHandler = require('../middleware/validation');
 const router = express.Router();
 
 //POST /user/create-user
-router.post('/create-user', validationHandler, userController.createUser);
+router.post('/users', validationHandler, userController.createUser);
 
 //GET /user/users
 router.get('/users', userController.getUsers);
 
 //GET /user/id/:userId
-router.get('/id/:userId', userController.getUserById);
+router.get('/users/id/:userId', userController.getUserById);
 
 //GET /user/name/:userName
-router.get('/name/:userName', userController.getUserByName);
+router.get('users/name/:userName', userController.getUserByName);
 
 //PUT /user/update-user/:userId
-router.put('/update-user/:userId', validationHandler, userController.updateUser);
+router.put('/users/:userId', validationHandler, userController.updateUser);
 
 //DELETE /user/update-user/:userId
-router.delete('/delete-user/:userId', userController.deleteUser);
+router.delete('/users/:userId', userController.deleteUser);
 
 module.exports = router;

@@ -8,7 +8,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use('/user', userRoutes);
+app.use('/', userRoutes);
 
 app.use((error, req, res, next) => {
     console.log(error);
