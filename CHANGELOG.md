@@ -1,5 +1,10 @@
 #### 1.0.0 (2021-09-26)
 
+##### Documentation Changes
+
+*  create README.md (0328e961)
+*  add CHANGELOG.md (b34a17ef)
+
 ##### New Features
 
 *  add middleware for validation (d786e6c9)
@@ -18,5 +23,10 @@
 
 ##### Bug Fixes
 
+* **validation:**  fix name validation (5961e284)
 *  add database username to .env (bea4b6d9)
+
+##### Refactors
+
+*  change request paths (3a47b03d)
 
