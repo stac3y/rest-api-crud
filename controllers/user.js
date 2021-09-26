@@ -78,9 +78,25 @@ exports.updateUser = (req, res, next) => {
         })
         .then(updatedUser => {
             res.status(200).json({
-                message: 'User fetched successfully.',
+                message: 'User updated successfully.',
                 user: updatedUser
             });
         })
         .catch(err => console.log(err));
+}
+
+//delete user by id
+exports.deleteUser = (req, res, next) => {
+    const userId = req.params.userId;
+
+    User.findByPk(userId)
+        .then(user => {
+            return user.destroy();
+        })
+        .then(() => {
+            res.status(200).json({
+                message: 'User deleted successfully.'
+            });
+        })
+        .catch(err => console.log(err))
 }

@@ -19,4 +19,7 @@ router.get('/name/:userName', userController.getUserByName);
 //PUT /user/update-user/:userId
 router.put('/update-user/:userId', userController.updateUser);
 
+//DELETE /user/update-user/:userId
+router.delete('/delete-user/:userId', userController.deleteUser);
+
 module.exports = router;
