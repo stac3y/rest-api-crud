@@ -59,3 +59,28 @@ exports.getUserByName = (req, res, next) => {
         })
         .catch(err => console.log(err));
 }
+
+//update user by id
+exports.updateUser = (req, res, next) => {
+    const userId = req.params.userId;
+
+    const updatedName = req.body.name;
+    const updatedEmail = req.body.email;
+    const updatedPassword = req.body.password;
+
+    User.findByPk(userId)
+        .then(user => {
+            user.name = updatedName;
+            user.email = updatedEmail;
+            user.password = updatedPassword;
+
+            return user.save();
+        })
+        .then(updatedUser => {
+            res.status(200).json({
+                message: 'User fetched successfully.',
+                user: updatedUser
+            });
+        })
+        .catch(err => console.log(err));
+}
