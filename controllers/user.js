@@ -20,13 +20,27 @@ exports.createUser = (req, res, next) => {
         .catch(err => console.log(err));
 }
 
-//get all not deleted users
+//get all users
 exports.getUsers = (req, res, next) => {
-    User.findAll({where: {deletedAt: null}})
+    User.findAll()
         .then(users => {
             res.status(200).json({
                 message: 'Users fetched successfully.',
                 users: users
+            });
+        })
+        .catch(err => console.log(err));
+}
+
+//get user by id
+exports.getUserById = (req, res, next) => {
+    const userId = req.params.userId;
+
+    User.findByPk(userId)
+        .then(user => {
+            res.status(200).json({
+                message: 'User fetched successfully.',
+                user: user
             });
         })
         .catch(err => console.log(err));
