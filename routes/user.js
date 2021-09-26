@@ -10,7 +10,10 @@ router.post('/create-user', userController.createUser);
 //GET /user/users
 router.get('/users', userController.getUsers);
 
-//GET /user/:userId
-router.get('/:userId', userController.getUserById);
+//GET /user/id/:userId
+router.get('/id/:userId', userController.getUserById);
+
+//GET /user/name/:userName
+router.get('/name/:userName', userController.getUserByName);
 
 module.exports = router;

@@ -45,3 +45,17 @@ exports.getUserById = (req, res, next) => {
         })
         .catch(err => console.log(err));
 }
+
+//get user by name
+exports.getUserByName = (req, res, next) => {
+    const userName = req.params.userName;
+
+    User.findOne({where: {name: userName}})
+        .then(user => {
+            res.status(200).json({
+                message: 'User fetched successfully.',
+                user: user
+            });
+        })
+        .catch(err => console.log(err));
+}
