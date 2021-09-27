@@ -1,7 +1,8 @@
 # rest-api-crud
-****
+
 Test task for iLink company  
-#Contents
+
+# Contents
 * [Task](#task)
 * [Requirements](#requirements)
 * [API Documentation](#api-documentation)
@@ -13,18 +14,18 @@ Test task for iLink company
   * [Delete User by Id](#delete-user-by-id)
 * [Installing Dependencies](#installing-dependencies)
 * [Run](#run)
-* [Tests](#tests)
-#Task
-****
+* [Tests](#tests)  
+
+# Task
 * Implementation REST API CRUD with Node.js
 * Create *users* entity with fields:
   * id and name
   * email and password
   * createdAt and deletedAt
 * Move server settings to .env.
-* Upload project to GitHub.  
-#Requirements
-****
+* Upload project to GitHub.
+  
+# Requirements
 The server must be able to...  
 * Create new users;
 * Get list of all users;
@@ -32,14 +33,15 @@ The server must be able to...
 * Get user by name;
 * Edit user;
 * Delete user (soft-delete).
-#API Documentation
-****
-##Create a new User
+
+# API Documentation
+
+## Create a new User
 POST /users  
 
-###Request  
+### Request  
 
-####Body parameters:  
+#### Body parameters:  
 
 **name** `Required`  
 string  
@@ -53,7 +55,7 @@ The email of a user. Should be valid email.
 string  
 The password of a user. Numbers and text and at least 6 characters.  
   
-###Example of Response
+### Example of Response
     {
         "message": "User created successfully.",
         "user": {
@@ -66,10 +68,10 @@ The password of a user. Numbers and text and at least 6 characters.
         }
     }
 
-##Get All Users
+## Get All Users
 GET /users
 
-###Example of Response
+### Example of Response
     {
         "message": "Users fetched successfully.",
         "users": [
@@ -92,18 +94,18 @@ GET /users
         ]
     }
 
-##Get User by Id
+## Get User by Id
 GET /users/id/{id}
 
-###Request
+### Request
 
-####Path parameters:
+#### Path parameters:
 
 **id** `Required`  
 number  
 The ID of a user
 
-###Example of Response
+### Example of Response
     {
         "message": "User fetched successfully.",
         "user": {
@@ -116,18 +118,18 @@ The ID of a user
         }
     }
 
-##Get User by Name
+## Get User by Name
 GET /users/name/{name}
 
-###Request
+### Request
 
-####Path parameters:
+#### Path parameters:
 
 **name** `Required`  
 string  
 The name of a user
 
-###Example of Response
+### Example of Response
     {
         "message": "User fetched successfully.",
         "user": {
@@ -140,18 +142,18 @@ The name of a user
         }
     }  
 
-##Update User by Id
+## Update User by Id
 PUT /users/{id}
 
-###Request
+### Request
 
-####Path parameters:
+#### Path parameters:
 
 **id** `Required`  
 number  
 The ID of a user
 
-####Body parameters:
+#### Body parameters:
 
 **name** `Required`  
 string  
@@ -165,7 +167,7 @@ The email of a user. Should be valid email.
 string  
 The password of a user. Numbers and text and at least 6 characters.
 
-###Example of Response
+### Example of Response
     {
         "message": "User updated successfully.",
         "user": {
@@ -178,27 +180,27 @@ The password of a user. Numbers and text and at least 6 characters.
         }
     }    
 
-##Delete User By Id
+## Delete User By Id
 DELETE /users/{id}
 
-###Request
+### Request
 
-####Path parameters:
+#### Path parameters:
 
 **id** `Required`  
 number  
 The ID of a user
 
-###Example of Response
+### Example of Response
     {
         "message": "User deleted successfully."
     }  
   
-##Installing Dependencies
+## Installing Dependencies
     npm install  
  
-##Run
+## Run
     npm run-script run  
   
-##Tests
+## Tests
 The `/test/test.http` file can be used for tests.
