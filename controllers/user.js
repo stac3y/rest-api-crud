@@ -39,7 +39,7 @@ exports.createUser = (req, res, next) => {
 exports.getUsers = (req, res, next) => {
     User.findAll()
         .then(users => {
-            if (!users) {
+            if (users.length === 0) {
                 const error = new Error('Could not find users.');
                 error.statusCode = 404;
                 throw error;
