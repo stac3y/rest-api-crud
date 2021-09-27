@@ -1,7 +1,10 @@
-#### 1.0.0 (2021-09-26)
+#### 1.0.0 (2021-09-27)
 
 ##### Documentation Changes
 
+*  update README.md (f3c7da0b)
+*  add documentation to README.md (aa7296bd)
+*  update CHANGELOG.md (75a8ee3f)
 *  create README.md (0328e961)
 *  add CHANGELOG.md (b34a17ef)
 
@@ -23,10 +26,19 @@
 
 ##### Bug Fixes
 
-* **validation:**  fix name validation (5961e284)
+*  correct run script (46d42974)
+*  fix request path for getting user by name (fded81b2)
+*  correct error handler in request for getting all users (6dd3cde9)
 *  add database username to .env (bea4b6d9)
+* **validation:**  fix name validation (5961e284)
 
 ##### Refactors
 
 *  change request paths (3a47b03d)
+
+##### Tests
+
+*  add test.http file for test (ef6389a7)
+
+
 
