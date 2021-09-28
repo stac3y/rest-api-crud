@@ -1,5 +1,5 @@
 # create new user
-POST http://localhost:8080/users
+POST http://localhost:{{port}}/users
 Content-Type: application/json
 
 {
@@ -10,22 +10,22 @@ Content-Type: application/json
 ###
 
 # get all users
-GET http://localhost:8080/users
+GET http://localhost:{{port}}/users
 Accept: application/json
 ###
 
 # get user by id
-GET http://localhost:8080/users/id/1
+GET http://localhost:{{port}}/users/id/1
 Accept: application/json
 ###
 
 # get user by name
-GET http://localhost:8080/users/name/user
+GET http://localhost:{{port}}/users/name/user
 Accept: application/json
 ###
 
 # update user by id
-PUT http://localhost:8080/users/1
+PUT http://localhost:{{port}}/users/1
 Content-Type: application/json
 
 {
@@ -36,7 +36,7 @@ Content-Type: application/json
 ###
 
 # delete user by id
-DELETE http://localhost:8080/users/1
+DELETE http://localhost:{{port}}/users/1
 Content-Type: application/json
 ###
 
