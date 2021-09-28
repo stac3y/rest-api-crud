@@ -1,7 +1,10 @@
-#### 1.0.0 (2021-09-27)
+#### 1.0.0 (2021-09-28)
 
 ##### Documentation Changes
 
+*  update README.md (e0d07012)
+*  update README.md (88db2d89)
+*  update CHANGELOG.md (c8de8933)
 *  update README.md (f3c7da0b)
 *  add documentation to README.md (aa7296bd)
 *  update CHANGELOG.md (75a8ee3f)
@@ -10,6 +13,7 @@
 
 ##### New Features
 
+*  add server configuration, database host and schema to .env (e3716e6f)
 *  add middleware for validation (d786e6c9)
 *  add check for uniqueness of the name (ad29c722)
 *  add validation (04a7e238)
@@ -38,7 +42,7 @@
 
 ##### Tests
 
+*  add host to environment (a8eb007f)
+*  add environment for test requests (45eff56f)
 *  add test.http file for test (ef6389a7)
-
-
 
