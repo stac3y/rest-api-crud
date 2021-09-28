@@ -48,11 +48,11 @@ POST /users
 The name of a user. Text and numbers.  
 
 **email** `Required`  
-*string* 
+*string*   
 The email of a user. Should be valid email.  
 
 **password** `Required`  
-*string* 
+*string*   
 The password of a user. Numbers and text and at least 6 characters.  
   
 ### Example of Response
