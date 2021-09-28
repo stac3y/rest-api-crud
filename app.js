@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+require('custom-env').env('staging');
 
 const sequelize = require('./util/database');
 const userRoutes = require('./routes/user');
@@ -21,7 +22,7 @@ sequelize
     .sync()
     .then(() => {
         console.log('Connection has been established successfully.');
-        app.listen(8080);
+        app.listen(process.env.PORT);
     })
     .catch(err => {
         console.error('Unable to connect to the database:', err);
