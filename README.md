@@ -44,15 +44,15 @@ POST /users
 #### Body parameters:  
 
 **name** `Required`  
-string  
+*string*  
 The name of a user. Text and numbers.  
 
 **email** `Required`  
-string  
+*string* 
 The email of a user. Should be valid email.  
 
 **password** `Required`  
-string  
+*string* 
 The password of a user. Numbers and text and at least 6 characters.  
   
 ### Example of Response
@@ -102,7 +102,7 @@ GET /users/id/{id}
 #### Path parameters:
 
 **id** `Required`  
-number  
+*number*  
 The ID of a user
 
 ### Example of Response
@@ -126,7 +126,7 @@ GET /users/name/{name}
 #### Path parameters:
 
 **name** `Required`  
-string  
+*string*  
 The name of a user
 
 ### Example of Response
@@ -150,21 +150,21 @@ PUT /users/{id}
 #### Path parameters:
 
 **id** `Required`  
-number  
+*number*  
 The ID of a user
 
 #### Body parameters:
 
 **name** `Required`  
-string  
+*string*  
 The name of a user. Text and numbers.
 
 **email** `Required`  
-string  
+*string*  
 The email of a user. Should be valid email.
 
-**password** `Required`  
-string  
+**password** `Required`    
+*string*   
 The password of a user. Numbers and text and at least 6 characters.
 
 ### Example of Response
@@ -188,7 +188,7 @@ DELETE /users/{id}
 #### Path parameters:
 
 **id** `Required`  
-number  
+*number*  
 The ID of a user
 
 ### Example of Response
